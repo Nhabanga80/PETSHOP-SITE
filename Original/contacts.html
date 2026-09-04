@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactos - Pet Shop Waggy</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="bg-light p-3 d-flex align-items-center">
+    <img src="images/logo-petshop.png" alt="Logótipo Pet Shop" height="60" class="me-3">
+    <nav>
+      <a href="index.html">Início</a> |
+      <a href="products.html">Produtos</a> |
+      <a href="services.html">Serviços</a> |
+      <a href="contact.html">Contactos</a>
+    </nav>
+  </header>
+
+  <!-- Formulário de Contacto -->
+  <main class="container mt-4">
+    <h2 class="text-center mb-4">Contacte-nos</h2>
+    <form id="contactForm" onsubmit="return validarFormulario()">
+      <div class="mb-3">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="assunto">Assunto:</label>
+        <input type="text" id="assunto" name="assunto" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="5" class="form-control" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="reset" class="btn btn-secondary">Limpar</button>
+    </form>
+  </main>
+
+  <!-- Rodapé -->
+<footer id="footer" class="bg-dark text-white text-center p-3 mt-4">
+  <p>Crimildo © Copyright 2026</p>
+  <p>Siga-nos nas redes sociais:</p>
+  <p>
+    <a href="https://www.facebook.com/teu_perfil" target="_blank" class="text-white">Facebook</a> |
+    <a href="https://www.instagram.com/teu_perfil" target="_blank" class="text-white">Instagram</a> |
+    <a href="https://wa.me/258848204400" target="_blank" class="text-white">WhatsApp</a>
+  </p>
+</footer>
+
+  <!-- Script de Validação -->
+  <script>
+    function validarFormulario() {
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const assunto = document.getElementById("assunto").value.trim();
+      const mensagem = document.getElementById("mensagem").value.trim();
+
+      if (!nome || !email || !assunto || !mensagem) {
+        alert("Por favor, preencha todos os campos.");
+        return false;
+      }
+
+      const regexEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      if (!regexEmail.test(email)) {
+        alert("Por favor, insira um e-mail válido.");
+        return false;
+      }
+
+      alert("Mensagem enviada com sucesso!");
+      return true;
+    }
+  </script>
+
+  <!-- Scripts Bootstrap -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
